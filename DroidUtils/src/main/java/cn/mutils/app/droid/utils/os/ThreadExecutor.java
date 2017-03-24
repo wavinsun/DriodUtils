@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 
+import java.util.concurrent.RejectedExecutionException;
+
 /**
  * 子线程执行工具
  *
@@ -66,29 +68,16 @@ public class ThreadExecutor {
         @Override
         public void run() {
             if (mTarget != null) {
-                new InnerTask(mTarget).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                try {
+                    AsyncTask.THREAD_POOL_EXECUTOR.execute(mTarget);
+                } catch (RejectedExecutionException e) {
+                    sHandler.post(this);
+                    return;
+                }
             }
             mTarget = null;
         }
 
-    }
-
-    static class InnerTask extends AsyncTask<Object, Object, Object> {
-
-        private Runnable mAction;
-
-        private InnerTask(Runnable action) {
-            mAction = action;
-        }
-
-        @Override
-        protected Object doInBackground(Object... params) {
-            if (mAction != null) {
-                mAction.run();
-            }
-            mAction = null;
-            return null;
-        }
     }
 
 }

@@ -3,6 +3,7 @@ package cn.mutils.app.droid.utils.os;
 import java.util.Comparator;
 import java.util.concurrent.Executor;
 import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -74,7 +75,7 @@ public class ThreadPool implements Executor {
         if (command == null) {
             return;
         }
-        mPoolExecutor.execute(command);
+        execute(command, NORMAL_PRIORITY);
     }
 
     /**
@@ -84,7 +85,25 @@ public class ThreadPool implements Executor {
      * @param priority 优先级
      */
     public void execute(Runnable command, int priority) {
-        mPoolExecutor.execute(new PriorityRunnable(command, priority));
+        final PriorityRunnable r = new PriorityRunnable(command, priority);
+        try {
+            mPoolExecutor.execute(r);
+        } catch (RejectedExecutionException e) {
+            if (!isBusy()) {
+                e.printStackTrace();
+                return;
+            }
+            UiExecutor.post(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        mPoolExecutor.execute(r);
+                    } catch (RejectedExecutionException e) {
+                        UiExecutor.post(this);
+                    }
+                }
+            });
+        }
     }
 
     /**
