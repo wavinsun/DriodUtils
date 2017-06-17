@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Toast-->
+    <dimen name="toast_font_size_t28">14dp</dimen>
+    <color name="toast_font_color_cff">#FFFFFF</color>
+
+    <!--Toast-->
+    <dimen name="toast_horizontal_padding">21dp</dimen>
+    <dimen name="toast_vertical_padding">14dp</dimen>
+    <dimen name="toast_max_width">232dp</dimen>
+    <dimen name="toast_line_space">4dp</dimen>
+</resources>

@@ -23,21 +23,28 @@
     │   └── <a href="#id21" title="cn.mutils.app.droid.utils.io.ZipUtil">ZipUtil</a>  Zip压缩工具
     ├── <a href="#id22" title="cn.mutils.app.droid.utils.os"><b>os</b></a>
     │   ├── <a href="#id23" title="cn.mutils.app.droid.utils.os.AppUtil">AppUtil</a>  应用相关实用类
-    │   ├── <a href="#id24" title="cn.mutils.app.droid.utils.os.SDCardUtil">SDCardUtil</a>  SD卡辅助类
-    │   ├── <a href="#id25" title="cn.mutils.app.droid.utils.os.TaskExecutor">TaskExecutor</a>  任务执行，支持回调
-    │   ├── <a href="#id26" title="cn.mutils.app.droid.utils.os.TaskExecutor.Task">TaskExecutor.Task</a>  任务
-    │   ├── <a href="#id27" title="cn.mutils.app.droid.utils.os.ThreadExecutor">ThreadExecutor</a>  子线程执行工具
-    │   ├── <a href="#id28" title="cn.mutils.app.droid.utils.os.ThreadPool">ThreadPool</a>  线程池
-    │   └── <a href="#id29" title="cn.mutils.app.droid.utils.os.UiExecutor">UiExecutor</a>  主线程执行工具
-    ├── <a href="#id30" title="cn.mutils.app.droid.utils.runtime"><b>runtime</b></a>
-    │   ├── <a href="#id31" title="cn.mutils.app.droid.utils.runtime.ReflectUtil">ReflectUtil</a>  反射工具
-    │   └── <a href="#id32" title="cn.mutils.app.droid.utils.runtime.StackTraceUtil">StackTraceUtil</a>  堆栈实用类
-    ├── <a href="#id33" title="cn.mutils.app.droid.utils.sort"><b>sort</b></a>
-    │   └── <a href="#id34" title="cn.mutils.app.droid.utils.sort.SortUtil">SortUtil</a>  排序实用类
-    ├── <a href="#id35" title="cn.mutils.app.droid.utils.time"><b>time</b></a>
-    │   └── <a href="#id36" title="cn.mutils.app.droid.utils.time.CalendarUtil">CalendarUtil</a>  日期工具类
-    └── <a href="#id37" title="cn.mutils.app.droid.utils.ui"><b>ui</b></a>
-        └── <a href="#id38" title="cn.mutils.app.droid.utils.ui.NoDBClickUtil">NoDBClickUtil</a>  避免快速双击实用类
+    │   ├── <a href="#id24" title="cn.mutils.app.droid.utils.os.AsyncTaskCompat">AsyncTaskCompat</a>  异步任务兼容封装
+    │   ├── <a href="#id25" title="cn.mutils.app.droid.utils.os.ProcessUtil">ProcessUtil</a>  进程实用类
+    │   ├── <a href="#id26" title="cn.mutils.app.droid.utils.os.SDCardUtil">SDCardUtil</a>  SD卡辅助类
+    │   ├── <a href="#id27" title="cn.mutils.app.droid.utils.os.TaskExecutor">TaskExecutor</a>  任务执行，支持回调
+    │   ├── <a href="#id28" title="cn.mutils.app.droid.utils.os.TaskExecutor.Task">TaskExecutor.Task</a>  任务
+    │   ├── <a href="#id29" title="cn.mutils.app.droid.utils.os.ThreadExecutor">ThreadExecutor</a>  子线程执行工具
+    │   ├── <a href="#id30" title="cn.mutils.app.droid.utils.os.ThreadPool">ThreadPool</a>  线程池
+    │   └── <a href="#id31" title="cn.mutils.app.droid.utils.os.UiExecutor">UiExecutor</a>  主线程执行工具
+    ├── <a href="#id32" title="cn.mutils.app.droid.utils.runtime"><b>runtime</b></a>
+    │   ├── <a href="#id33" title="cn.mutils.app.droid.utils.runtime.ReflectUtil">ReflectUtil</a>  反射工具
+    │   └── <a href="#id34" title="cn.mutils.app.droid.utils.runtime.StackTraceUtil">StackTraceUtil</a>  堆栈实用类
+    ├── <a href="#id35" title="cn.mutils.app.droid.utils.sort"><b>sort</b></a>
+    │   └── <a href="#id36" title="cn.mutils.app.droid.utils.sort.SortUtil">SortUtil</a>  排序实用类
+    ├── <a href="#id37" title="cn.mutils.app.droid.utils.telephony"><b>telephony</b></a>
+    │   ├── <a href="#id38" title="cn.mutils.app.droid.utils.telephony.CallStateMonitor">CallStateMonitor</a>  通话状态监听器
+    │   └── <a href="#id39" title="cn.mutils.app.droid.utils.telephony.CallStateMonitor.CallStateObserver">CallStateMonitor.CallStateObserver</a>  通话状态变化观察者
+    ├── <a href="#id40" title="cn.mutils.app.droid.utils.time"><b>time</b></a>
+    │   └── <a href="#id41" title="cn.mutils.app.droid.utils.time.CalendarUtil">CalendarUtil</a>  日期工具类
+    └── <a href="#id42" title="cn.mutils.app.droid.utils.ui"><b>ui</b></a>
+        ├── <a href="#id43" title="cn.mutils.app.droid.utils.ui.CompatDialog">CompatDialog</a>  对话框封装类
+        ├── <a href="#id44" title="cn.mutils.app.droid.utils.ui.NoDBClickUtil">NoDBClickUtil</a>  避免快速双击实用类
+        └── <a href="#id45" title="cn.mutils.app.droid.utils.ui.ToastUtil">ToastUtil</a>  Toast实用类
 </pre>
 
 <a name="id2"></a>
@@ -1156,6 +1163,40 @@
 ------
 <a name="id24"></a>
 
+### AsyncTaskCompat ###
+
+>  异步任务兼容封装<br/>
+> <br/>
+>  Created by wenhua.ywh on 2017/3/24.
+
+<br/><b>initAsyncTask</b>()
+
+>  保证初始化异步任务在主线程
+
+------
+<a name="id25"></a>
+
+### ProcessUtil ###
+
+>  进程实用类
+
+<br/><b>getProcessName</b>(Context context)
+
+>  获取当前进程名称<br/>
+> <br/>
+>  @param context 上下文<br/>
+>  @return 当前进程名称
+
+<br/><b>isMainProcess</b>(Context context)
+
+>  判断是否是主进程<br/>
+> <br/>
+>  @param context 上下文<br/>
+>  @return 是否是主进程
+
+------
+<a name="id26"></a>
+
 ### SDCardUtil ###
 
 >  SD卡辅助类
@@ -1173,7 +1214,7 @@
 >  @return 是否可用
 
 ------
-<a name="id25"></a>
+<a name="id27"></a>
 
 ### TaskExecutor ###
 
@@ -1220,7 +1261,7 @@
 >  @return 任务
 
 ------
-<a name="id26"></a>
+<a name="id28"></a>
 
 ### TaskExecutor.Task ###
 
@@ -1297,7 +1338,7 @@
 >  任务开始回调
 
 ------
-<a name="id27"></a>
+<a name="id29"></a>
 
 ### ThreadExecutor ###
 
@@ -1325,7 +1366,7 @@
 >  @param action 回调
 
 ------
-<a name="id28"></a>
+<a name="id30"></a>
 
 ### ThreadPool ###
 
@@ -1379,7 +1420,7 @@
 >  停止线程池
 
 ------
-<a name="id29"></a>
+<a name="id31"></a>
 
 ### UiExecutor ###
 
@@ -1409,11 +1450,11 @@
 >  @param action 回调
 
 ------
-<a name="id30"></a>
+<a name="id32"></a>
 
 ## cn.mutils.app.droid.utils.runtime ##
 
-<a name="id31"></a>
+<a name="id33"></a>
 
 ### ReflectUtil ###
 
@@ -1497,7 +1538,7 @@
 >  @param value     值
 
 ------
-<a name="id32"></a>
+<a name="id34"></a>
 
 ### StackTraceUtil ###
 
@@ -1532,11 +1573,11 @@
 >  @return 堆栈信息
 
 ------
-<a name="id33"></a>
+<a name="id35"></a>
 
 ## cn.mutils.app.droid.utils.sort ##
 
-<a name="id34"></a>
+<a name="id36"></a>
 
 ### SortUtil ###
 
@@ -1573,11 +1614,90 @@
 >  @return 排序完成的列表
 
 ------
-<a name="id35"></a>
+<a name="id37"></a>
+
+## cn.mutils.app.droid.utils.telephony ##
+
+<a name="id38"></a>
+
+### CallStateMonitor ###
+
+>  通话状态监听器<br/>
+>  <p><br/>
+>  Created by wenhua.ywh on 2017/6/16.
+
+<br/><b>CALL\_STATE\_IDLE</b> : int
+
+>  无任何状态时
+
+<br/><b>CALL\_STATE\_OFFHOOK</b> : int
+
+>  接起电话时，通话状态
+
+<br/><b>CALL\_STATE\_RINGING</b> : int
+
+>  电话进来时，响铃状态
+
+<br/><b>addObserver</b>(CallStateMonitor.CallStateObserver observer)
+
+>  添加通话状态变化观察者<br/>
+> <br/>
+>  @param observer 观察者
+
+<br/><b>clearObservers</b>()
+
+>  清空通话状态变化观察者
+
+<br/><b>getCallState</b>()
+
+>  获取当前通话状态<br/>
+> <br/>
+>  @return
+
+<br/><b>getInstance</b>()
+
+>  单例方式获取实例<br/>
+> <br/>
+>  @return 监听器
+
+<br/><b>install</b>(Context context)
+
+>  安装监听器<br/>
+> <br/>
+>  @param context 上下文
+
+<br/><b>removeObserver</b>(CallStateMonitor.CallStateObserver observer)
+
+>  移除通话状态变化观察者<br/>
+> <br/>
+>  @param observer 观察者
+
+<br/><b>uninstall</b>(Context context)
+
+>  移除监听器<br/>
+> <br/>
+>  @param context 上下文
+
+------
+<a name="id39"></a>
+
+### CallStateMonitor.CallStateObserver ###
+
+>  通话状态变化观察者
+
+<br/><b>onCallStateChanged</b>(int state, String incomingNumber)
+
+>  通话状态变化<br/>
+> <br/>
+>  @param state          通话状态<br/>
+>  @param incomingNumber 电话号码
+
+------
+<a name="id40"></a>
 
 ## cn.mutils.app.droid.utils.time ##
 
-<a name="id36"></a>
+<a name="id41"></a>
 
 ### CalendarUtil ###
 
@@ -1649,11 +1769,53 @@
 >  @return 月份
 
 ------
-<a name="id37"></a>
+<a name="id42"></a>
 
 ## cn.mutils.app.droid.utils.ui ##
 
-<a name="id38"></a>
+<a name="id43"></a>
+
+### CompatDialog ###
+
+>  对话框封装类
+
+<br/><b>dismiss</b>()
+
+>  关闭对话框
+
+<br/><b>isShowing</b>()
+
+>  是否显示<br/>
+> <br/>
+>  @return
+
+<br/><b>onLayout</b>(boolean changed, int l, int t, int r, int b)
+
+<br/><b>setContentView</b>(View view)
+
+>  设置内容视图<br/>
+> <br/>
+>  @param view 视图
+
+<br/><b>setContentView</b>(View view, ViewGroup.LayoutParams params)
+
+>  设置内容视图<br/>
+> <br/>
+>  @param view   视图<br/>
+>  @param params 布局参数
+
+<br/><b>setContentView</b>(int layoutResID)
+
+>  设置内容视图<br/>
+> <br/>
+>  @param layoutResID 视图资源编号
+
+<br/><b>show</b>()
+
+>  显示对话框
+
+------
+<a name="id44"></a>
 
 ### NoDBClickUtil ###
 
@@ -1664,13 +1826,98 @@
 <br/><b>setOnClickListener</b>(View view, View.OnClickListener listener)
 
 >  设置点击监听<br/>
->  @param view 视图<br/>
+> <br/>
+>  @param view     视图<br/>
 >  @param listener 监听
 
 <br/><b>setOnItemClickListener</b>(<any> adapterView, AdapterView.OnItemClickListener listener)
 
 >  设置子项点击监听<br/>
+> <br/>
 >  @param adapterView 视图<br/>
->  @param listener 监听
+>  @param listener    监听
+
+------
+<a name="id45"></a>
+
+### ToastUtil ###
+
+>  Toast实用类
+
+<br/><b>cancel</b>()
+
+>  取消显示Toast
+
+<br/><b>showLongToast</b>(Context context, CharSequence message)
+
+>  显示Toast较长时间<br/>
+> <br/>
+>  @param context 上下文<br/>
+>  @param message 消息
+
+<br/><b>showLongToast</b>(Context context, CharSequence message, float dpTextSize)
+
+>  显示Toast较长时间<br/>
+> <br/>
+>  @param context    上下文<br/>
+>  @param message    消息<br/>
+>  @param dpTextSize 文本字体大小，以dp计算
+
+<br/><b>showLongToast</b>(Context context, CharSequence message, int gravity, int xOffset, int yOffset)
+
+>  显示Toast较长时间<br/>
+> <br/>
+>  @param context 上下文<br/>
+>  @param message 消息<br/>
+>  @param gravity 显示位置<br/>
+>  @param xOffset 水平偏移量<br/>
+>  @param yOffset 垂直偏移量
+
+<br/><b>showLongToast</b>(Context context, CharSequence message, int gravity, int xOffset, int yOffset, float dpTextSize)
+
+>  显示Toast较长时间<br/>
+> <br/>
+>  @param context    上下文<br/>
+>  @param message    消息<br/>
+>  @param gravity    显示位置<br/>
+>  @param xOffset    水平偏移量<br/>
+>  @param yOffset    垂直偏移量<br/>
+>  @param dpTextSize 文本字体大小，以dp计算
+
+<br/><b>showToast</b>(Context context, CharSequence message)
+
+>  显示Toast<br/>
+> <br/>
+>  @param context 上下文<br/>
+>  @param message 消息
+
+<br/><b>showToast</b>(Context context, CharSequence message, float dpTextSize)
+
+>  显示Toast<br/>
+> <br/>
+>  @param context    上下文<br/>
+>  @param message    消息<br/>
+>  @param dpTextSize 文本字体大小，以dp计算
+
+<br/><b>showToast</b>(Context context, CharSequence message, int gravity, int xOffset, int yOffset)
+
+>  显示Toast<br/>
+> <br/>
+>  @param context 上下文<br/>
+>  @param message 消息<br/>
+>  @param gravity 显示位置<br/>
+>  @param xOffset 水平偏移量<br/>
+>  @param yOffset 垂直偏移量
+
+<br/><b>showToast</b>(Context context, CharSequence message, int gravity, int xOffset, int yOffset, float dpTextSize)
+
+>  显示Toast<br/>
+> <br/>
+>  @param context    上下文<br/>
+>  @param message    消息<br/>
+>  @param gravity    显示位置<br/>
+>  @param xOffset    水平偏移量<br/>
+>  @param yOffset    垂直偏移量<br/>
+>  @param dpTextSize 文本字体大小，以dp计算
 
 ------
