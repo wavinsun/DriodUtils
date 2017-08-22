@@ -7,7 +7,8 @@ package cn.mutils.app.droid.utils.encrypt;
  */
 public class XorText {
 
-    private static final char[] KEY = {'\u5807', '\u82B1'};
+    private static final char KEY_DATA_ODD = '\u5807';
+    private static final char KEY_DATA_EVEN = '\u82B1';
 
     /**
      * 编码
@@ -33,19 +34,13 @@ public class XorText {
         if (text == null) {
             return null;
         }
-        try {
-            char[] chars = text.toCharArray();
-            boolean flag = true;
-            char odd = KEY[0];
-            char even = KEY[1];
-            for (int i = 0, size = chars.length; i < size; i++) {
-                chars[i] = (char) (chars[i] ^ (flag ? odd : even));
-                flag = !flag;
-            }
-            return new String(chars);
-        } catch (Exception e) {
-            return null;
+        char[] chars = text.toCharArray();
+        boolean isOdd = true;
+        for (int i = 0, size = chars.length; i < size; i++) {
+            chars[i] = (char) (chars[i] ^ (isOdd ? KEY_DATA_ODD : KEY_DATA_EVEN));
+            isOdd = !isOdd;
         }
+        return new String(chars);
     }
 
 }
