@@ -15,7 +15,7 @@
     │   ├── <a href="#id13" title="cn.mutils.app.droid.utils.encrypt.HexUtil">HexUtil</a>  十六进制实用类
     │   ├── <a href="#id14" title="cn.mutils.app.droid.utils.encrypt.MD5Util">MD5Util</a>  MD5实用类
     │   ├── <a href="#id15" title="cn.mutils.app.droid.utils.encrypt.MagicText">MagicText</a>  魔法文本
-    │   ├── <a href="#id16" title="cn.mutils.app.droid.utils.encrypt.MagicXorText">MagicXorText</a>
+    │   ├── <a href="#id16" title="cn.mutils.app.droid.utils.encrypt.MagicXorText">MagicXorText</a>  异或魔法文本
     │   ├── <a href="#id17" title="cn.mutils.app.droid.utils.encrypt.RsaUtil">RsaUtil</a>  SHA1WithRSA签名校验工具
     │   └── <a href="#id18" title="cn.mutils.app.droid.utils.encrypt.XorText">XorText</a>  异或加密解密
     ├── <a href="#id19" title="cn.mutils.app.droid.utils.graphics"><b>graphics</b></a>
@@ -599,6 +599,7 @@
 ### MagicXorText ###
 
 >  异或魔法文本<br/>
+>  <p><br/>
 >  Created by wenhua.ywh on 2017/8/21.
 
 <br/><b>decode</b>(String encodedText)

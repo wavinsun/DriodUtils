@@ -2,6 +2,7 @@ package cn.mutils.app.droid.utils.encrypt;
 
 /**
  * 异或魔法文本
+ * <p>
  * Created by wenhua.ywh on 2017/8/21.
  */
 public class MagicXorText {
